@@ -58,9 +58,12 @@ export class ChatPage {
          // get current position
          this.geolocation.getCurrentPosition()
              .then((resp) => {
-               this.userLocation = resp.coords;
+               this.userLocation = {
+                  latitude: resp.coords.latitude,
+                  longitude: resp.coords.longitude
+                };
 
-               // this.addMessage('You are at '+resp.coords.latitude+', '+resp.coords.longitude, false);
+               this.addMessage('You are at '+resp.coords.latitude+', '+resp.coords.longitude, false);
              }).catch((error) => {
                console.log('Error getting location', error);
                this.showError("Sorry, I can't get your location");
@@ -82,6 +85,7 @@ export class ChatPage {
 
   public send(message){
     // add user's message
+    message = 'i want chicken';
     this.addMessage(message);
 
     // clear text area
