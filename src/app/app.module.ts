@@ -8,9 +8,12 @@ import { ChatPage } from '../pages/chat/chat';
 import { User } from '../providers/user';
 import { Bot } from '../providers/bot';
 
-import { SearchSelectPopoverComponent } from '../components/search-select-popover/search-select-popover';
 import { SearchSelectMultiComponent } from '../components/search-select-multi/search-select-multi';
+import { SearchSelectSingleComponent } from '../components/search-select-single/search-select-single';
+
+import { SearchSelectPopoverComponent } from '../components/search-select-popover/search-select-popover';
 import { SpinnerPopoverComponent } from '../components/spinner-popover/spinner-popover';
+import { BudgetPopoverComponent } from '../components/budget-popover/budget-popover';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -21,9 +24,11 @@ import { Geolocation } from '@ionic-native/geolocation';
     MyApp,
     LoginPage,
     ChatPage,
-    SearchSelectPopoverComponent,
     SearchSelectMultiComponent,
-    SpinnerPopoverComponent
+    SearchSelectSingleComponent,
+    SearchSelectPopoverComponent,
+    SpinnerPopoverComponent,
+    BudgetPopoverComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -33,9 +38,11 @@ import { Geolocation } from '@ionic-native/geolocation';
     MyApp,
     LoginPage,
     ChatPage,
-    SearchSelectPopoverComponent,
     SearchSelectMultiComponent,
-    SpinnerPopoverComponent
+    SearchSelectSingleComponent,
+    SearchSelectPopoverComponent,
+    SpinnerPopoverComponent,
+    BudgetPopoverComponent
   ],
   providers: [
     StatusBar,

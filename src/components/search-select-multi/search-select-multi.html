@@ -7,17 +7,27 @@
 
 <ion-list no-padding no-lines text-wrap inset id="wrapper">
   <ion-list-header>
-    Select {{title}} <span (click)="close()" class="close">Select</span>
+    {{title}} <span (click)="close()" class="close">Select</span>
   </ion-list-header>
     <ion-searchbar placeholder="Search" [(ngModel)]="query" (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-item>Total: {{total}} php</ion-item>
 
-  <ion-item *ngFor="let i of items">
-    <ion-label>
-      <p *ngFor="let label of labels">
-        {{i[label]}}
-      </p>
-    </ion-label>
-    <ion-checkbox [(ngModel)]="i.checked" (ionChange)="setSelected()"></ion-checkbox>
-  </ion-item>
+  <ion-item-group *ngFor="let i of items">
+    <ion-item>
+      <ion-label>
+        <p *ngFor="let label of labels">
+          {{ i[label] }} {{ label === 'price' ? php : '' }}
+        </p>
+      </ion-label>
+      <ion-checkbox [(ngModel)]="i.checked" (ionChange)="setSelected()"></ion-checkbox>
+    </ion-item>
+
+    <ion-item *ngIf="i.checked" id="qty">
+      <ion-label stacked>
+        Quantity
+      </ion-label>
+      <ion-input type="number" placeholder="Type quantity"  (input)="computeTotal()" [(ngModel)]="i.qty"></ion-input>
+    </ion-item>
+  </ion-item-group>
 
 </ion-list>

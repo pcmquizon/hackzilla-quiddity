@@ -1,0 +1,17 @@
+<!--
+  Generated template for the BudgetPopover component.
+
+  See https://angular.io/docs/ts/latest/api/core/index/ComponentMetadata-class.html
+  for more info on Angular 2 Components.
+-->
+
+<ion-item-group padding>
+  <ion-label stacked id="normal">Budget {{budget}} php</ion-label>
+  <ion-range [(ngModel)]="budget" pin="true" min="0" max="5000" no-padding>
+    <ion-label range-left>0</ion-label>
+    <ion-label range-right>5000</ion-label>
+  </ion-range>
+  <button ion-button outline class="button-block" (click)="close()">
+    Close
+  </button>
+</ion-item-group>
