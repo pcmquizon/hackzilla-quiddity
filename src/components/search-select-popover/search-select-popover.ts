@@ -12,11 +12,6 @@ import { Component } from '@angular/core';
 })
 export class SearchSelectPopoverComponent {
 
-  text: string;
-
-  constructor() {
-    console.log('Hello SearchSelectPopover Component');
-    this.text = 'Hello World';
-  }
+  constructor() {}
 
 }

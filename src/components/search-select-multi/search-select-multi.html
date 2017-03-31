@@ -5,4 +5,19 @@
   for more info on Angular 2 Components.
 -->
 
-{{text}}
+<ion-list no-padding no-lines text-wrap inset id="wrapper">
+  <ion-list-header>
+    Select {{title}} <span (click)="close()" class="close">Select</span>
+  </ion-list-header>
+    <ion-searchbar placeholder="Search" [(ngModel)]="query" (ionInput)="getItems($event)"></ion-searchbar>
+
+  <ion-item *ngFor="let i of items">
+    <ion-label>
+      <p *ngFor="let label of labels">
+        {{i[label]}}
+      </p>
+    </ion-label>
+    <ion-checkbox [(ngModel)]="i.checked" (ionChange)="setSelected()"></ion-checkbox>
+  </ion-item>
+
+</ion-list>

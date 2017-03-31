@@ -12,11 +12,6 @@ import { Component } from '@angular/core';
 })
 export class SpinnerPopoverComponent {
 
-  text: string;
-
-  constructor() {
-    console.log('Hello SpinnerPopover Component');
-    this.text = 'Hello World';
-  }
+  constructor() {}
 
 }

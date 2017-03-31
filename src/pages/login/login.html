@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Login</ion-title>
+    <ion-title>Quiddity</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,4 +15,22 @@
 
 <ion-content padding>
 
+  <ion-list no-lines text-wrap>
+    <ion-item>
+      <ion-label floating inset>Username</ion-label>
+      <ion-input type="text" [(ngModel)]="user.username"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating inset>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+
+    <ion-item></ion-item>
+
+    <button ion-button outline class="button-block" (click)="login()">
+      <ion-icon name="log-in"></ion-icon>Login
+    </button>
+
+  </ion-list>
 </ion-content>
