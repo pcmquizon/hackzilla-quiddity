@@ -1,14 +1,14 @@
-INSERT INTO restaurant(name) VALUES("Yellow Cab");
+INSERT INTO restaurant(name) VALUES("KFC");
+INSERT INTO restaurant(name) VALUES("Heaven\'s Barbeque");
 INSERT INTO restaurant(name) VALUES("McDonald\'s");
-INSERT INTO restaurant(name) VALUES("Jonas");
+INSERT INTO restaurant(name) VALUES("S&R New York Style Pizza");
+INSERT INTO restaurant(name) VALUES("Yellow Cab");
+INSERT INTO restaurant(name) VALUES("Chowking");
+INSERT INTO restaurant(name) VALUES("Burger King");
+INSERT INTO restaurant(name) VALUES("Max\'s Restaurant");
 INSERT INTO restaurant(name) VALUES("Jollibee");
 INSERT INTO restaurant(name) VALUES("Brothers Burger");
-INSERT INTO restaurant(name) VALUES("Chowking");
-INSERT INTO restaurant(name) VALUES("KFC");
-INSERT INTO restaurant(name) VALUES("S&R New York Style Pizza");
-INSERT INTO restaurant(name) VALUES("Burger King");
-INSERT INTO restaurant(name) VALUES("Heaven\'s Barbeque");
-INSERT INTO restaurant(name) VALUES("Max\'s Restaurant");
+INSERT INTO restaurant(name) VALUES("Jonas");
 
         INSERT INTO food(name, resto_id, price) VALUES("Buffalo Wings with Blue Cheese Dip", (
             SELECT id FROM restaurant WHERE name = "Heaven\'s Barbeque"), 225.0);
@@ -388,20 +388,6 @@ INSERT INTO restaurant(name) VALUES("Max\'s Restaurant");
             INSERT INTO food_category VALUES(
                 (SELECT id FROM food WHERE name = 'Creamy Mushroom and Bacon Carbonara' AND resto_id =
                     (SELECT id FROM restaurant WHERE name = 'Heaven\'s Barbeque')), 'pasta');
-
-        
-        INSERT INTO food(name, resto_id, price) VALUES("Sausage Platter", (
-            SELECT id FROM restaurant WHERE name = "Heaven\'s Barbeque"), 285.0);
-
-    
-            INSERT INTO food_category VALUES(
-                (SELECT id FROM food WHERE name = 'Sausage Platter' AND resto_id =
-                    (SELECT id FROM restaurant WHERE name = 'Heaven\'s Barbeque')), 'sausage');
-
-        
-            INSERT INTO food_category VALUES(
-                (SELECT id FROM food WHERE name = 'Sausage Platter' AND resto_id =
-                    (SELECT id FROM restaurant WHERE name = 'Heaven\'s Barbeque')), 'barbeque');
 
         
         INSERT INTO food(name, resto_id, price) VALUES("One-half Chicken", (
@@ -1130,7 +1116,7 @@ INSERT INTO restaurant(name) VALUES("Max\'s Restaurant");
     
             INSERT INTO food_category VALUES(
                 (SELECT id FROM food WHERE name = 'Chopsuey Meal' AND resto_id =
-                    (SELECT id FROM restaurant WHERE name = 'Max\'s Restaurant')), 'vegetable');
+                    (SELECT id FROM restaurant WHERE name = 'Max\'s Restaurant')), 'vegetables');
 
         
             INSERT INTO food_category VALUES(
