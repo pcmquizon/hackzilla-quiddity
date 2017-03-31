@@ -11,14 +11,14 @@ import sys
 import json
 
 db_username = 'root'
-password = 'root'
+password = ''
 intent = sys.argv[1]
 username = sys.argv[2]
 k = int(sys.argv[3])
 if intent == "find-food":
 	_food = sys.argv[4]
 elif intent == "find-restaurant":
-	_resto_id = sys.argv[4]
+	_resto = sys.argv[4]
 elif intent == "find-food-restaurant":
 	_food = sys.argv[4]
 	_resto = sys.argv[5]
