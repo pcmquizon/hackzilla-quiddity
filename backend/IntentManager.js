@@ -72,23 +72,21 @@ exports.findRestaurant = function(res, parameters, location) {
     // });
     const query = `SELECT DISTINCT (restaurant.id), min(food.price), max(food.price) FROM restaurant JOIN food ON restaurant.id = food.resto_id WHERE food.name LIKE \"%${food[0]}%\" OR food.id IN ( SELECT food_id FROM food_category WHERE category LIKE \"%${food[0]}%\") GROUP BY restaurant.id;`
     connection.query(query, [food[0], food[0]], (err, rows) => {
-        err? console.log(err) : res.send(rows);
+        err? console.log(err) : console.log(rows);
     });
 
 };
 
-exports.findFoodRestaurant = function(parameters) {
+exports.findFoodRestaurant = function(res, parameters) {
     console.log(parameters);
     const { food, restaurant } = parameters;
-
-    // connection.query(query, [food], (err, rows) => {
-    //     console.log(rows);
-    //     res.status(200).send({message: 'Ordered ' + response.result.parameters.food +
-    //         ' from ' + response.result.parameters.store +
-    //         ' for ' + rows[0].price + 'pesos.'});
-    // });
+    console.log(food[0], restaurant);
+    const query = `SELECT * FROM food WHERE name LIKE \"%${food[0]}%\" AND resto_id = (SELECT id FROM restaurant WHERE name LIKE \"%${restaurant}%\" LIMIT 1);`;
+    connection.query(query, [food[0], restaurant], (err, rows) => {
+        err? console.log(err) : console.log(rows);
+    });
 };
-
+// IM HUNGRY
 exports.findMeal = function(parameters) {
-          
+    
 };

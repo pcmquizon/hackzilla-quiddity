@@ -85,7 +85,7 @@ export class ChatPage {
 
   public send(message){
     // add user's message
-    message = 'i want chicken';
+    message = 'i want chicken from jollibee';
     this.addMessage(message);
 
     // clear text area
