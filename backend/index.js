@@ -35,10 +35,9 @@ app.post('/query', (req, res) => {
 
     request.on('response', (response) => {
         const { parameters } = response.result;
-        console.log(response.result.metadata.intentName);
+        parameters.intent = response.result.metadata.intentName;
         switch(response.result.metadata.intentName) {
             case constants.FIND_FOOD : 
-                console.log(parameters);
                 parameters.username = req.body.username;
                 im.findFood(res, parameters);
                 break;
@@ -62,7 +61,6 @@ app.post('/query', (req, res) => {
     });
 
     request.end();
-
 });
 
 app.listen(8000, () => {

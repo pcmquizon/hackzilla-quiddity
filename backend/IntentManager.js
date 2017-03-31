@@ -19,6 +19,7 @@ const googleMaps = require('@google/maps').createClient({
 exports.findFood = function(res, parameters) {
     exec('python3 ../knn.py find-food ' + parameters.username + ' 4 ' + parameters.food[0],
         function callback(error, stdout, stderr) {
+            stdout = {data: JSON.parse(stdout), intent: parameters.intent};
             res.send(stdout);
     });
 }
@@ -30,6 +31,7 @@ exports.findRestaurant = function(res, parameters) {
         let id = rows[0].id;
         exec('python3 ../knn.py find-restaurant ' + parameters.username + ' 4 ' + id,
             function callback(error, stdout, stderr) {
+                stdout = {data: JSON.parse(stdout), intent: parameters.intent};
                 res.send(stdout);
             });
     });
@@ -42,6 +44,7 @@ exports.findFoodRestaurant = function(res, parameters) {
         let id = rows[0].id;
         exec('python3 ../knn.py find-food-restaurant ' + parameters.username + ' 4 ' + parameters.food
             + ' ' + id, function callback(error, stdout, stderr){
+            stdout = {data: JSON.parse(stdout), intent: parameters.intent};
             res.send(stdout);
         });
     });
@@ -49,6 +52,7 @@ exports.findFoodRestaurant = function(res, parameters) {
 // IM HUNGRY
 exports.findMeal = function(res, parameters) {
     exec('python3 ../knn.py find-meal ' + parameters.username + ' 4', function callback(error, stdout, stderr){
+        stdout = {data: JSON.parse(stdout), intent: parameters.intent};
         res.send(stdout);
     });
 };
