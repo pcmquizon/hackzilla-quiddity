@@ -94,4 +94,4 @@ json_list = []
 for food_id,freq in result:
   json_list.append({'food_id':food_id, 'freq':freq})
 
-print(json.dumps({json_list}))
+print(json.dumps(json_list))
