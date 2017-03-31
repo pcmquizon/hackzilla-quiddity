@@ -35,13 +35,24 @@ app.post('/query', (req, res) => {
 
     request.on('response', (response) => {
         const { parameters } = response.result;
-        console.log(response.result.metadata.intentName );
+        parameters.intent = response.result.metadata.intentName;
         switch(response.result.metadata.intentName) {
-            case constants.FIND_FOOD : im.findRestaurant(res, parameters, location); break;
-            case constants.FIND_RESTAURANT : im.findFood(res, parameters); break;
-            case constants.FIND_FOOD_RESTAURANT : im.findFoodRestaurant(res, parameters); break;
+            case constants.FIND_FOOD : 
+                parameters.username = req.body.username;
+                im.findFood(res, parameters);
+                break;
+            case constants.FIND_RESTAURANT :
+                parameters.username = req.body.username;
+                im.findRestaurant(res, parameters);
+                break;
+            case constants.FIND_FOOD_RESTAURANT : 
+                parameters.username = req.body.username;
+                im.findFoodRestaurant(res, parameters);
+                break;
             case constants.FIND_MEAL : 
-                im.findMeal(res, parameters); break;
+                parameters.username = req.body.username;
+                im.findMeal(res, parameters);
+                break;
         }
     });
 
@@ -50,7 +61,6 @@ app.post('/query', (req, res) => {
     });
 
     request.end();
-
 });
 
 app.listen(8000, () => {
