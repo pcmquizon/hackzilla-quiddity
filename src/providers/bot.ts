@@ -54,7 +54,7 @@ export class Bot {
     let postData = this.toUrlEncoded(keys, values);
 
     return this.http
-               .post('http://10.239.117.71:8000/query', postData, options)
+               .post('http://127.0.0.1:8000/query', postData, options)
                .map(res => res.json())
                .map(data => { return data; })
                .toPromise();
