@@ -15,16 +15,15 @@ password = sys.argv[2]
 username = sys.argv[3]
 k = int(sys.argv[4])
 
-db = mysql.connect('localhost', db_username, '', 'quiddity')
+db = mysql.connect('localhost', db_username, password, 'quiddity')
 cursor = db.cursor()
 
 cursor.execute('SELECT DISTINCT(category) FROM food_category')
 categories = list(map(lambda x:x[0],cursor.fetchall()))
 cursor.execute('SELECT id from user')
 users = list(map(lambda x:x[0],cursor.fetchall()))
-cursor.execute('SELECT id from user where username = %s' % username)
-user_id = list(map(lambda x:x[0][0],cursor.fetchall()))
-print(user_id)
+cursor.execute('SELECT id from user where username = \'%s\'' % username)
+user_id = list(map(lambda x:x[0],cursor.fetchall()))[0]
 cursor.execute('SELECT id from restaurant')
 restaurant = list(map(lambda x:x[0],cursor.fetchall()))
 data = []
