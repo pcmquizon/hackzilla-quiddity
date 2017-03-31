@@ -12,7 +12,8 @@ import json
 
 username = sys.argv[1]
 password = sys.argv[2]
-k = int(sys.argv[3])
+user_id = int(sys.argv[3])
+k = int(sys.argv[4])
 
 db = mysql.connect('localhost', username, password, 'quiddity')
 cursor = db.cursor()
@@ -73,7 +74,7 @@ def get_k_nearest(i, k):
 		nearest[i][0] = -nearest[i][0]
 	return reversed(nearest)
 
-nearest = get_k_nearest(0,k)
+nearest = get_k_nearest(user_id,k)
 
 result = {}
 for distance, user in nearest:
