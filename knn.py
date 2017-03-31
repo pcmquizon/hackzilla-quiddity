@@ -8,6 +8,7 @@
 import MySQLdb as mysql
 import numpy as np
 import sys
+import json
 
 username = sys.argv[1]
 password = sys.argv[2]
@@ -88,4 +89,9 @@ for distance, user in nearest:
 
 result = list(result.items())
 result.sort(key=lambda x:x[1])
-print(result)
+
+json_list = []
+for food_id,freq in result:
+  json_list.append({'food_id':food_id, 'freq':freq})
+
+print(json.dumps({json_list}))
