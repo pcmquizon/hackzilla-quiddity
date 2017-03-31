@@ -12,7 +12,7 @@ const ai = apiai('61fcbc0a546640cf9432593611d8ba66');
 const connection = mysql.createConnection({
   host : 'localhost',
   user : 'root',
-  password : 'root',
+  password : '',
   db : 'quiddity'
 });
 
@@ -40,7 +40,8 @@ app.post('/query', (req, res) => {
             case constants.FIND_FOOD : im.findRestaurant(res, parameters, location); break;
             case constants.FIND_RESTAURANT : im.findFood(res, parameters); break;
             case constants.FIND_FOOD_RESTAURANT : im.findFoodRestaurant(res, parameters); break;
-            case constants.FIND_MEAL : im.findMeal(res, parameters); break;
+            case constants.FIND_MEAL : 
+                im.findMeal(res, parameters); break;
         }
     });
 

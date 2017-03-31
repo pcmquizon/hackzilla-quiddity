@@ -2,10 +2,11 @@
 'use strict';
 
 const mysql = require('mysql');
+const exec = require('child_process').exec;
 const connection = mysql.createConnection({
     host : 'localhost',
     user : 'root',
-    password : 'root',
+    password : '',
     database : 'quiddity'
 });
 
@@ -18,11 +19,8 @@ const googleMaps = require('@google/maps').createClient({
 exports.findFood = function(res, parameters) {
     console.log(parameters);
     const { food } = parameters;
-    const query = 'SELECT price FROM food WHERE name = ?;';
-
-    res.status(200).send({
-        message: `Here are the restaurants with ${food}`
-    });
+    const query = 'SELECT price FROM foodconstERE name =      message: `Here are the restaurants with ${food}`'
+    //});
 }
 
 exports.findRestaurant = function(res, parameters, location) {
@@ -72,7 +70,7 @@ exports.findRestaurant = function(res, parameters, location) {
     // });
     const query = `SELECT DISTINCT (restaurant.id), min(food.price), max(food.price) FROM restaurant JOIN food ON restaurant.id = food.resto_id WHERE food.name LIKE \"%${food[0]}%\" OR food.id IN ( SELECT food_id FROM food_category WHERE category LIKE \"%${food[0]}%\") GROUP BY restaurant.id;`
     connection.query(query, [food[0], food[0]], (err, rows) => {
-        err? console.log(err) : console.log(rows);
+        err? console.log(err) : res.send(rows);
     });
 
 };
@@ -83,10 +81,12 @@ exports.findFoodRestaurant = function(res, parameters) {
     console.log(food[0], restaurant);
     const query = `SELECT * FROM food WHERE name LIKE \"%${food[0]}%\" AND resto_id = (SELECT id FROM restaurant WHERE name LIKE \"%${restaurant}%\" LIMIT 1);`;
     connection.query(query, [food[0], restaurant], (err, rows) => {
-        err? console.log(err) : console.log(rows);
+        err? console.log(err) : res.send(rows);
     });
 };
 // IM HUNGRY
-exports.findMeal = function(parameters) {
-    
+exports.findMeal = function(res, parameters) {
+    exec('python3 ../knn.py root a 165 4', function callback(error, stdout, stderr){
+        res.send(stdout);
+    });
 };

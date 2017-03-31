@@ -15,7 +15,7 @@ password = sys.argv[2]
 user_id = int(sys.argv[3])
 k = int(sys.argv[4])
 
-db = mysql.connect('localhost', username, password, 'quiddity')
+db = mysql.connect('localhost', username, '', 'quiddity')
 cursor = db.cursor()
 
 cursor.execute('SELECT DISTINCT(category) FROM food_category')
@@ -24,7 +24,6 @@ cursor.execute('SELECT id from user')
 users = list(map(lambda x:x[0],cursor.fetchall()))
 cursor.execute('SELECT id from restaurant')
 restaurant = list(map(lambda x:x[0],cursor.fetchall()))
-print("Fetching features...")
 data = []
 for user in users:
 	#print(user,":",end=" ")
@@ -66,7 +65,7 @@ def get_k_nearest(i, k):
 	for j in range(len(data)):
 		if i!=j and data[j]:
 			t = dist(data[i],data[j])
-			heappush(nearest,[-t,j]) # max queue, invert dist
+			heappush(nearest,[-t,users[j]]) # max queue, invert dist
 			if len(nearest) > k:
 				heappop(nearest)
 
@@ -74,25 +73,29 @@ def get_k_nearest(i, k):
 		nearest[i][0] = -nearest[i][0]
 	return reversed(nearest)
 
-nearest = get_k_nearest(user_id,k)
-
+nearest = list(get_k_nearest(users.index(user_id),k))
 result = {}
 for distance, user in nearest:
-	cursor.execute('''SELECT order_foods.food_id, count(order_foods.food_id) from user_order
+	cursor.execute('''SELECT order_foods.food_id, count(order_foods.food_id), food.name from user_order
 						join order_foods on user_order.id = order_foods.order_id
+						join food on order_foods.food_id = food.id
 						where user_order.user_id = %d group by order_foods.food_id;''' % (user) )
 	for x in cursor.fetchall():
-		food, frequency = x
+		food, frequency, name = x
 		if food in result:
-			result[food] += frequency
+			result[food][0] += frequency
 		else:
-			result[food] = frequency
+			result[food] = [frequency, name]
 
 result = list(result.items())
-result.sort(key=lambda x:x[1])
+result.sort(key=lambda x:-x[1][0])
 
 json_list = []
-for food_id,freq in result:
-  json_list.append({'food_id':food_id, 'freq':freq})
+for x in result:
+  food_id = x[0]
+  freq = x[1][0]
+  name = x[1][1]
+
+  json_list.append({'food_id':food_id, 'freq':freq, 'name': name})
 
 print(json.dumps(json_list))
