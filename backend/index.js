@@ -5,7 +5,8 @@ const cookieSession = require('cookie-session');
 const apiai = require('apiai');
 const bodyParser = require('body-parser')
 const mysql = require('mysql');
-
+const im = require('./IntentManager.js');
+const constants = require('./constants.js');
 const app = express();
 const ai = apiai('9042474a853848ae9fcf0b0b8292f792');
 const connection = mysql.createConnection({
@@ -13,6 +14,11 @@ const connection = mysql.createConnection({
   user : 'root',
   password : 'root',
   db : 'quiddity'
+});
+
+const googleMaps = require('@google/maps').createClient({
+    key : 'AIzaSyBk6Ms0o4SoXkmdOQJyVN2tl6gPu_bWICw',
+    Promise: require('q').Promise
 });
 
 connection.connect((err) => {
@@ -28,19 +34,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.post('/query', (req, res) => {
-    console.log('req ' + req.body)
-    const request = ai.textRequest(req.body.query, {sessionId: '69'});
+
+    const { query, location } = req.body;
+    const request = ai.textRequest(query, {sessionId: '69'});
 
     request.on('response', (response) => {
-        console.log(response)
-        const query = 'SELECT price FROM food WHERE name = ?;';
-        console.log(response.result.parameters.food)
-        connection.query(query, [response.result.parameters.food], (err, rows) => {
-            console.log(rows);
-            res.status(200).send({message: 'Ordered ' + response.result.parameters.food +
-                ' from ' + response.result.parameters.store +
-                ' for ' + rows[0].price + 'pesos.'});
-        });
+        const { parameters } = response.result;
+        switch(response.result.metadata.intentName) {
+            case constants.FIND_FOOD : im.findFood(res, parameters); break;
+            case constants.FIND_RESTAURANT : im.findRestaurant(res, parameters); break;
+            case constants.FIND_FOOD_RESTAURANT : im.findFoodRestaurant(res, parameters); break;
+        }
     });
 
     request.on('error', (error) => {
@@ -48,10 +52,26 @@ app.post('/query', (req, res) => {
     });
 
     request.end();
+    
 });
 
 app.post('/places', (req, res) => {
 
+    var a = {
+      query: 'food delivery',
+      language: 'en',
+      location: [14.5528663,121.0496398],
+      radius: 1500,
+      opennow: true
+    };
+
+    googleMaps.places(a)
+    .asPromise()
+    .then(function(response) {
+
+    });
+
+    res.end();
 });
 
 app.listen(8000, () => {

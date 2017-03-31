@@ -1,3 +1,30 @@
 search-select-popover {
 
+  .inline-button {
+    align-items: center;
+    cursor: pointer;
+    cursor: hand;
+    display: flex;
+  }
+
+  .inline-button:hover:not(.disable-hover) {
+    background-color: rgba(158, 158, 158, 0.1);
+  }
+
+  .inline-button:active:not(.disable-active) {
+    background-color: rgba(158, 158, 158, 0.2);
+  }
+
+  .inline-button .activated, {
+    background-color: rgba(158, 158, 158, 0.2);
+    box-shadow: none;
+  }
+
+
+  .inline-button button:hover:not(.disable-hover),
+  .inline-button button:active:not(.disable-active),
+  .inline-button button.activated, {
+    background-color: transparent;
+  }
+
 }
