@@ -55,7 +55,9 @@ export class LoginPage {
         .then(
               (result) => {
                 console.log('login OK');
-                this.navCtrl.setRoot(ChatPage, {}, {
+                this.navCtrl.setRoot(ChatPage, {
+                  user: this.user
+                }, {
                   animate: true,
                   direction: 'forward'
                 });

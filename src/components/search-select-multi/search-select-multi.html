@@ -16,7 +16,7 @@
     <ion-item>
       <ion-label>
         <p *ngFor="let label of labels">
-          {{ i[label] }} {{ label === 'price' ? php : '' }}
+          {{ i[label] }} {{ label === 'price' ? 'php' : '' }}
         </p>
       </ion-label>
       <ion-checkbox [(ngModel)]="i.checked" (ionChange)="setSelected()"></ion-checkbox>
@@ -26,7 +26,7 @@
       <ion-label stacked>
         Quantity
       </ion-label>
-      <ion-input type="number" placeholder="Type quantity"  (input)="computeTotal()" [(ngModel)]="i.qty"></ion-input>
+      <ion-input type="number" placeholder="Type quantity" (input)="computeTotal()" [(ngModel)]="i.qty">1</ion-input>
     </ion-item>
   </ion-item-group>
 

@@ -42,7 +42,8 @@ export class ChatPage {
 
   public data = {
     msg: '',
-    location: this.userLocation
+    location: this.userLocation,
+    username: ''
   };
 
   constructor(private platform: Platform,
@@ -55,9 +56,13 @@ export class ChatPage {
 
        platform.ready().then(() => {
 
+         this.data['username'] = this.navParams.data.user['username'];
+
          // get current position
+         this.showLoading();
          this.geolocation.getCurrentPosition()
              .then((resp) => {
+               this.hideLoading();
                this.userLocation = {
                   latitude: resp.coords.latitude,
                   longitude: resp.coords.longitude
@@ -85,7 +90,6 @@ export class ChatPage {
 
   public send(message){
     // add user's message
-    message = 'i want chicken from jollibee';
     this.addMessage(message);
 
     // clear text area
@@ -110,11 +114,14 @@ export class ChatPage {
       // send something to api ai
       // api ai responds
 
+    this.data['location'] = this.userLocation;
     this.data['msg'] = message;
 
     this.bot.sendToApiAi(this.data)
             .then(
                   (data) => {
+                    console.log(JSON.stringify(data));
+
                     // api.ai recognized something
                     this.intent = data['intentName'];
 
@@ -123,17 +130,17 @@ export class ChatPage {
                     // append some bot responses
 
                     switch (this.intent) {
-                      case "confirm-order":
-                        this.showBuyConfirm();
-                        break;
-                      case "ask-budget":
-                        this.showAskBudget();
-                        break;
+                      // case "confirm-order":
+                      //   this.showBuyConfirm();
+                      //   break;
+                      // case "ask-budget":
+                      //   this.showAskBudget();
+                      //   break;
                       case "find-food":
                         this.popoverOpts = {
                           items: data['rows'],
                           label: 'restaurant_name',
-                          value: 'restaurant_id',
+                          value: 'resto_id',
                           title: 'Find restaurant of choice:',
                           intent: this.intent
                         };
@@ -141,17 +148,48 @@ export class ChatPage {
                         this.showSingleMenu();
                         // this.intent = 'find-restaurant';
                         break;
-                      case "find-restaurant":
-                        this.popoverOpts = {
-                          items: data['rows'],
-                          labels: ['food_name'],
-                          skip_labels: ['price'],
-                          values: ['food_id', 'qty'],
-                          title: 'Find food of choice:',
-                          intent: this.intent
-                        };
+                      case "find-food-restaurant":
+                        this.showAskBudget()
+                            .then((budget) => {
+                              let rows = data['rows'].filter((item) => {
+                                if(item['price'] <= budget){
+                                  return item;
+                                }
+                              });
 
-                        this.showMultiMenu();
+                              this.popoverOpts = {
+                                items: rows,
+                                labels: ['name', 'price'],
+                                values: ['id', 'qty'],
+                                title: 'Find food of choice:',
+                                intent: this.intent,
+                                budget: budget
+                              };
+
+                              this.showMultiMenu();
+                            });
+                        // this.intent = 'confirm-order';
+                        break;
+                      case "find-restaurant":
+                        this.showAskBudget()
+                            .then((budget) => {
+                              let rows = data['rows'].filter((item) => {
+                                if(item['price'] <= budget){
+                                  return item;
+                                }
+                              });
+
+                              this.popoverOpts = {
+                                items: rows,
+                                labels: ['name', 'price'],
+                                values: ['id', 'qty'],
+                                title: 'Find food of choice:',
+                                intent: this.intent,
+                                budget: budget
+                              };
+
+                              this.showMultiMenu();
+                            });
                         // this.intent = 'confirm-order';
                         break;
                       default:
@@ -193,12 +231,16 @@ export class ChatPage {
     });
 
     popover.present();
-    popover.onDidDismiss((data) => {
-      this.budget = data;
-      // this.addMessage('Budget is '+this.budget, false);
-      let msg = this.data['msg'] + this.budget;
-      this.processResponse(msg);
-    })
+
+    return new Promise((resolve, reject) => {
+      popover.onDidDismiss((data) => {
+        this.budget = data;
+        // this.addMessage('Budget is '+this.budget, false);
+        // let msg = this.data['msg'] + this.budget;
+        // this.processResponse(msg);
+        resolve(this.budget);
+      });
+    });
   }
 
   public showBuyConfirm(){
@@ -243,7 +285,7 @@ export class ChatPage {
 
       this.selected = data['selected'];
 
-      this.addMessage('log: '+JSON.stringify(data));
+      // this.addMessage('log: '+JSON.stringify(data));
 
       let msg = this.data['msg'] + this.selected;
       this.processResponse(msg);
@@ -265,11 +307,16 @@ export class ChatPage {
 
       this.selected = data['selected'];
 
-      this.addMessage('log: '+JSON.stringify(data));
+      // this.addMessage('log: '+JSON.stringify(data));
 
       // send selected to backend
-      let msg = this.data['msg'] + JSON.stringify(this.selected);
-      this.processResponse(msg);
+      // let msg = this.data['msg'] + JSON.stringify(this.selected);
+
+      switch (this.intent) {
+        case "find-food-restaurant":
+          this.showBuyConfirm();
+          break;
+      }
     });
   }
 

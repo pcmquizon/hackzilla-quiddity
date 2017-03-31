@@ -7,9 +7,9 @@
 
 <ion-item-group padding>
   <ion-label stacked id="normal">Budget {{budget}} php</ion-label>
-  <ion-range [(ngModel)]="budget" pin="true" min="0" max="5000" no-padding>
+  <ion-range [(ngModel)]="budget" pin="true" snap="true" min="0" max="650" no-padding>
     <ion-label range-left>0</ion-label>
-    <ion-label range-right>5000</ion-label>
+    <ion-label range-right>650</ion-label>
   </ion-range>
   <button ion-button outline class="button-block" (click)="close()">
     Close

@@ -48,13 +48,14 @@ export class Bot {
       headers: headers
     });
 
-    let keys = ['query', 'location'];
-    let values = [data['msg'], data['location']];
+    let keys = ['query', 'location', 'username'];
+    let values = [data['msg'], data['location'], data['username']];
 
     let postData = this.toUrlEncoded(keys, values);
+    console.log('sending '+JSON.stringify(postData));
 
     return this.http
-               .post('http://127.0.0.1:8000/query', postData, options)
+               .post('http://10.239.117.71:8000/query', postData, options)
                .map(res => res.json())
                .map(data => { return data; })
                .toPromise();

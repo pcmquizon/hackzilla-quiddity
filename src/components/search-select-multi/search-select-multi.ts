@@ -124,6 +124,16 @@ export class SearchSelectMultiComponent {
       return self.indexOf(value) === index;
     }).sort();
 
+    for(let selected of this.selected){
+      selected['qty'] = 1;
+    }
+
+    for(let food of this.items){
+      if(!food['checked']){
+        food['qty'] = 0;
+      }
+    }
+
     // extra tasks
     switch (this.intent) {
       case "find-restaurant":
@@ -175,13 +185,13 @@ export class SearchSelectMultiComponent {
       case "find-restaurant":
         data['selected'] = this.selected.map((item) => {
           return {
-            food_id: item['food_id'],
+            food_id: item['id'],
             qty: item['qty']
           };
         });
 
         let labels = this.selected.map((item) => {
-          return item['food_name'];
+          return item['name'];
         });
 
         data['label'] = labels.join(', ');
