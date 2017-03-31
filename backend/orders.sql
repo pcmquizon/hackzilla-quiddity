@@ -1,22 +1,54 @@
-INSERT INTO user_order(user_id, resto_id, order_date) VALUES (1, 3, CURRENT_TIMESTAMP)
-INSERT INTO user_order(user_id, resto_id, order_date) VALUES (1, 5, CURRENT_TIMESTAMP)
-INSERT INTO user_order(user_id, resto_id, order_date) VALUES (1, 5, CURRENT_TIMESTAMP)
-INSERT INTO user_order(user_id, resto_id, order_date) VALUES (1, 5, CURRENT_TIMESTAMP)
-INSERT INTO user_order(user_id, resto_id, order_date) VALUES (1, 5, CURRENT_TIMESTAMP)
-INSERT INTO user_order(user_id, resto_id, order_date) VALUES (1, 8, CURRENT_TIMESTAMP)
-INSERT INTO user_order(user_id, resto_id, order_date) VALUES (1, 3, CURRENT_TIMESTAMP)
-INSERT INTO user_order(user_id, resto_id, order_date) VALUES (1, 8, CURRENT_TIMESTAMP)
-INSERT INTO user_order(user_id, resto_id, order_date) VALUES (1, 8, CURRENT_TIMESTAMP)
-INSERT INTO user_order(user_id, resto_id, order_date) VALUES (1, 5, CURRENT_TIMESTAMP)
-INSERT INTO user_order(user_id, resto_id, order_date) VALUES (1, 5, CURRENT_TIMESTAMP)
-INSERT INTO order_foods(order_id, food_id, qty) VALUES (1, 158, 1)
-INSERT INTO order_foods(order_id, food_id, qty) VALUES (2, 98, 1)
-INSERT INTO order_foods(order_id, food_id, qty) VALUES (3, 98, 1)
-INSERT INTO order_foods(order_id, food_id, qty) VALUES (4, 98, 1)
-INSERT INTO order_foods(order_id, food_id, qty) VALUES (5, 98, 1)
-INSERT INTO order_foods(order_id, food_id, qty) VALUES (6, 115, 1)
-INSERT INTO order_foods(order_id, food_id, qty) VALUES (7, 158, 1)
-INSERT INTO order_foods(order_id, food_id, qty) VALUES (8, 115, 1)
-INSERT INTO order_foods(order_id, food_id, qty) VALUES (9, 115, 1)
-INSERT INTO order_foods(order_id, food_id, qty) VALUES (10, 98, 1)
-INSERT INTO order_foods(order_id, food_id, qty) VALUES (11, 98, 1)
+INSERT INTO user(username, password, email, credit_card_num, credit_card_type) VALUES ('jdamanalo', 'secret', 'wow@wow.com', '123', '123');
+INSERT INTO user(username, password, email, credit_card_num, credit_card_type) VALUES ('kenmercado', 'secret', 'wow@wow.com', '234', '123');
+INSERT INTO user(username, password, email, credit_card_num, credit_card_type) VALUES ('pcmquizon', 'secret', 'wow@wow.com', '456', '123');
+INSERT INTO user(username, password, email, credit_card_num, credit_card_type) VALUES ('giooooo', 'secret', 'wow@wow.com', '1', '123');
+INSERT INTO user(username, password, email, credit_card_num, credit_card_type) VALUES ('paauu_pau', 'secret', 'wow@wow.com', '2', '123');
+INSERT INTO user(username, password, email, credit_card_num, credit_card_type) VALUES ('peterrupa', 'secret', 'wow@wow.com', '3', '123');
+INSERT INTO user(username, password, email, credit_card_num, credit_card_type) VALUES ('almermendoza', 'secret', 'wow@wow.com', '4', '123');
+INSERT INTO user(username, password, email, credit_card_num, credit_card_type) VALUES ('gelloguiam', 'secret', 'wow@wow.com', '5', '123');
+INSERT INTO user(username, password, email, credit_card_num, credit_card_type) VALUES ('keanpapa', 'secret', 'wow@wow.com', '7', '123');
+INSERT INTO user(username, password, email, credit_card_num, credit_card_type) VALUES ('pjrobles', 'secret', 'wow@wow.com', '6', '123');
+INSERT INTO user(username, password, email, credit_card_num, credit_card_type) VALUES ('simonbarrameda', 'secret', 'wow@wow.com', '8', '123');
+INSERT INTO user(username, password, email, credit_card_num, credit_card_type) VALUES ('wichawdpitawge', 'secret', 'wow@wow.com', '9', '123');
+INSERT INTO user(username, password, email, credit_card_num, credit_card_type) VALUES ('patganaden', 'secret', 'wow@wow.com', '12163', '123');
+INSERT INTO user(username, password, email, credit_card_num, credit_card_type) VALUES ('mightybulacs', 'secret', 'wow@wow.com', '12311', '123');
+INSERT INTO user(username, password, email, credit_card_num, credit_card_type) VALUES ('jonbugayong', 'secret', 'wow@wow.com', '1213', '123');
+INSERT INTO user(username, password, email, credit_card_num, credit_card_type) VALUES ('mark_zuck', 'secret', 'wow@wow.com', '1123', '123');
+INSERT INTO user_order(user_id, resto_id, order_date) VALUES ((SELECT id FROM user WHERE username = 'jdamanalo'), (SELECT id FROM restaurant WHERE name = 'Jollibee'), CURRENT_TIMESTAMP);
+INSERT INTO order_foods VALUES (LAST_INSERT_ID(), (SELECT id FROM food WHERE name = '1-pc. Chickenjoy Meal'), 1);
+INSERT INTO user_order(user_id, resto_id, order_date) VALUES ((SELECT id FROM user WHERE username = 'jdamanalo'), (SELECT id FROM restaurant WHERE name = 'Jollibee'), CURRENT_TIMESTAMP);
+INSERT INTO order_foods VALUES (LAST_INSERT_ID(), (SELECT id FROM food WHERE name = '2-pc. Chickenjoy Meal'), 1);
+INSERT INTO user_order(user_id, resto_id, order_date) VALUES ((SELECT id FROM user WHERE username = 'jdamanalo'), (SELECT id FROM restaurant WHERE name = 'Jollibee'), CURRENT_TIMESTAMP);
+INSERT INTO order_foods VALUES (LAST_INSERT_ID(), (SELECT id FROM food WHERE name = '1-pc. Chickenjoy Meal'), 1);
+INSERT INTO user_order(user_id, resto_id, order_date) VALUES ((SELECT id FROM user WHERE username = 'jdamanalo'), (SELECT id FROM restaurant WHERE name = 'McDonald\'s'), CURRENT_TIMESTAMP);
+INSERT INTO order_foods VALUES (LAST_INSERT_ID(), (SELECT id FROM food WHERE name = 'Big Mac Value Meal'), 2);
+INSERT INTO user_order(user_id, resto_id, order_date) VALUES ((SELECT id FROM user WHERE username = 'kenmercado'), (SELECT id FROM restaurant WHERE name = 'KFC'), CURRENT_TIMESTAMP);
+INSERT INTO order_foods VALUES (LAST_INSERT_ID(), (SELECT id FROM food WHERE name = '1-pc Chicken Rice Soup'), 1);
+INSERT INTO user_order(user_id, resto_id, order_date) VALUES ((SELECT id FROM user WHERE username = 'kenmercado'), (SELECT id FROM restaurant WHERE name = 'KFC'), CURRENT_TIMESTAMP);
+INSERT INTO order_foods VALUES (LAST_INSERT_ID(), (SELECT id FROM food WHERE name = '1-pc Chicken Rice Soup'), 1);
+INSERT INTO user_order(user_id, resto_id, order_date) VALUES ((SELECT id FROM user WHERE username = 'kenmercado'), (SELECT id FROM restaurant WHERE name = 'KFC'), CURRENT_TIMESTAMP);
+INSERT INTO order_foods VALUES (LAST_INSERT_ID(), (SELECT id FROM food WHERE name = '1-pc Chicken Rice Soup'), 1);
+INSERT INTO user_order(user_id, resto_id, order_date) VALUES ((SELECT id FROM user WHERE username = 'pcmquizon'), (SELECT id FROM restaurant WHERE name = 'Yellow Cab'), CURRENT_TIMESTAMP);
+INSERT INTO order_foods VALUES (LAST_INSERT_ID(), (SELECT id FROM food WHERE name = 'New York\'s Finest'), 1);
+INSERT INTO user_order(user_id, resto_id, order_date) VALUES ((SELECT id FROM user WHERE username = 'pcmquizon'), (SELECT id FROM restaurant WHERE name = 'Yellow Cab'), CURRENT_TIMESTAMP);
+INSERT INTO order_foods VALUES (LAST_INSERT_ID(), (SELECT id FROM food WHERE name = 'NY Classic'), 1);
+INSERT INTO user_order(user_id, resto_id, order_date) VALUES ((SELECT id FROM user WHERE username = 'pcmquizon'), (SELECT id FROM restaurant WHERE name = 'Yellow Cab'), CURRENT_TIMESTAMP);
+INSERT INTO order_foods VALUES (LAST_INSERT_ID(), (SELECT id FROM food WHERE name = 'Hawaiian'), 1);
+INSERT INTO user_order(user_id, resto_id, order_date) VALUES ((SELECT id FROM user WHERE username = 'giooooo'), (SELECT id FROM restaurant WHERE name = 'Burger King'), CURRENT_TIMESTAMP);
+INSERT INTO order_foods VALUES (LAST_INSERT_ID(), (SELECT id FROM food WHERE name = 'Whopper Meal'), 1);
+INSERT INTO user_order(user_id, resto_id, order_date) VALUES ((SELECT id FROM user WHERE username = 'giooooo'), (SELECT id FROM restaurant WHERE name = 'Burger King'), CURRENT_TIMESTAMP);
+INSERT INTO order_foods VALUES (LAST_INSERT_ID(), (SELECT id FROM food WHERE name = 'Whopper Meal'), 1);
+INSERT INTO user_order(user_id, resto_id, order_date) VALUES ((SELECT id FROM user WHERE username = 'giooooo'), (SELECT id FROM restaurant WHERE name = 'Yellow Cab'), CURRENT_TIMESTAMP);
+INSERT INTO order_foods VALUES (LAST_INSERT_ID(), (SELECT id FROM food WHERE name = 'New York\'s Finest'), 1);
+INSERT INTO user_order(user_id, resto_id, order_date) VALUES ((SELECT id FROM user WHERE username = 'jdamanalo'), (SELECT id FROM restaurant WHERE name = 'Jollibee'), CURRENT_TIMESTAMP);
+INSERT INTO order_foods VALUES (LAST_INSERT_ID(), (SELECT id FROM food WHERE name = '2-pc. Chickenjoy Meal'), 1);
+INSERT INTO user_order(user_id, resto_id, order_date) VALUES ((SELECT id FROM user WHERE username = 'jdamanalo'), (SELECT id FROM restaurant WHERE name = 'Jollibee'), CURRENT_TIMESTAMP);
+INSERT INTO order_foods VALUES (LAST_INSERT_ID(), (SELECT id FROM food WHERE name = '1-pc. Chickenjoy Meal'), 1);
+INSERT INTO user_order(user_id, resto_id, order_date) VALUES ((SELECT id FROM user WHERE username = 'paauu_pau'), (SELECT id FROM restaurant WHERE name = 'Max\'s Restaurant'), CURRENT_TIMESTAMP);
+INSERT INTO order_foods VALUES (LAST_INSERT_ID(), (SELECT id FROM food WHERE name = 'Chopsuey Meal'), 1);
+INSERT INTO user_order(user_id, resto_id, order_date) VALUES ((SELECT id FROM user WHERE username = 'paauu_pau'), (SELECT id FROM restaurant WHERE name = 'Max\'s Restaurant'), CURRENT_TIMESTAMP);
+INSERT INTO order_foods VALUES (LAST_INSERT_ID(), (SELECT id FROM food WHERE name = 'Chicken Dinner Meal'), 1);
+INSERT INTO user_order(user_id, resto_id, order_date) VALUES ((SELECT id FROM user WHERE username = 'paauu_pau'), (SELECT id FROM restaurant WHERE name = 'Jollibee'), CURRENT_TIMESTAMP);
+INSERT INTO order_foods VALUES (LAST_INSERT_ID(), (SELECT id FROM food WHERE name = '1-pc. Chickenjoy Meal'), 1);
+INSERT INTO user_order(user_id, resto_id, order_date) VALUES ((SELECT id FROM user WHERE username = 'peterrupa'), (SELECT id FROM restaurant WHERE name = 'Jonas'), CURRENT_TIMESTAMP);
+INSERT INTO order_foods VALUES (LAST_INSERT_ID(), (SELECT id FROM food WHERE name = 'Liempo Bowl'), 1);
