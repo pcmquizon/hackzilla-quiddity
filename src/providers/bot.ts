@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
+import { Headers } from '@angular/http';
+import { RequestOptions } from '@angular/http';
+import 'rxjs/add/operator/toPromise';
+
 /*
   Generated class for the Bot provider.
 
@@ -11,8 +15,49 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class Bot {
 
-  constructor(public http: Http) {
-    console.log('Hello Bot Provider');
+  constructor(public http: Http) {}
+
+  private toUrlEncoded(keys, values, toUriEncoded = true){
+    if(keys.length !== values.length){
+      return null;
+    }
+
+    var str = [];
+    for (var i=0; i<keys.length; i++) {
+      let key = keys[i];
+      let value = values[i];
+
+      if(toUriEncoded){
+        if(typeof value === 'object'){
+          value = encodeURIComponent(JSON.stringify(value));
+        }
+      }
+
+      str.push(key + '=' + value);
+    }
+
+    return str.join('&');
+  }
+
+  public sendToApiAi(data){
+    let headers = new Headers();
+    headers.append('Accept', 'application/json');
+    headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=utf-8');
+
+    let options = new RequestOptions({
+      headers: headers
+    });
+
+    let keys = ['query', 'location'];
+    let values = [data['msg'], data['location']];
+
+    let postData = this.toUrlEncoded(keys, values);
+
+    return this.http
+               .post('http://10.239.117.71:8000/query', postData, options)
+               .map(res => res.json())
+               .map(data => { return data; })
+               .toPromise();
   }
 
 }

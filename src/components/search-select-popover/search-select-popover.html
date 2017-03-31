@@ -5,4 +5,18 @@
   for more info on Angular 2 Components.
 -->
 
-{{text}}
+<ion-item no-lines no-padding>
+  <ion-row no-padding class="inline-button">
+      <ion-col width-80>
+        <ion-label>
+          {{label}}&nbsp;
+        </ion-label>
+      </ion-col>
+      <ion-col width-20 class="buttons">
+        <button ion-button icon-only clear>
+          <ion-icon name="arrow-dropdown"></ion-icon>
+        </button>
+      </ion-col>
+  </ion-row>
+</ion-item>
+
