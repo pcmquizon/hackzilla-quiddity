@@ -1,0 +1,27 @@
+{
+  "name": "quiddity",
+  "version": "1.0.0",
+  "description": "All-in-one Ordering App",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mightymercado/quiddity.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mightymercado/quiddity/issues"
+  },
+  "homepage": "https://github.com/mightymercado/quiddity#readme",
+  "dependencies": {
+    "apiai": "^4.0.1",
+    "body-parser": "^1.17.1",
+    "cookie-session": "^2.0.0-beta.1",
+    "express": "^4.15.2",
+    "mysql": "^2.13.0"
+  }
+}

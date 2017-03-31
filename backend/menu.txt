@@ -1,0 +1,159 @@
+Buffalo Wings with Blue Cheese Dip,Heaven's Barbeque,225.00,chicken
+Sausage Platter,Heaven's Barbeque,285.00,meat-sausage-barbeque
+Beef Nachos,Heaven's Barbeque,255.00,beef-nachos
+Asian Salad with Chicken Barbeque,Heaven's Barbeque,125.00,chicken-salad
+Mango Asparagus Caesar Salad with Chicken Barbeque,Heaven's Barbeque,135.00,chicken-salad
+Cheesy Pumpkin Soup,Heaven's Barbeque,115.00,soup
+Cheesy Broccoli Soup,Heaven's Barbeque,125.00,soup
+Heaven Barsilog,Heaven's Barbeque,155.00,egg-barbeque-pork-silog-rice
+Sausage Bowl,Heaven's Barbeque,155.00,egg-sausage-silog-rice
+Chicken Bowl,Heaven's Barbeque,165.00,chicken-rice
+Liempo Bowl,Heaven's Barbeque,175.00,liempo-pork-silog-egg-rice
+Tapsilog Bowl,Heaven's Barbeque,145.00,tapa-pork-egg-silog-rice
+Cheese Burger Blast with Egg and Garlic Rice,Heaven's Barbeque,155.00,burger-egg-rice
+Maple Cured Bacon and Egg with Garlic Rice,Heaven's Barbeque,155.00,bacon-egg-rice
+Longganisa (Native Sausage) with Egg and Garlic Rice,Heaven's Barbeque,135.00,longganisa-egg-rice
+Sausage with Egg and Croissant,Heaven's Barbeque,175.00,sausage-egg
+Maple Cured Bacon and Egg with Croissant,Heaven's Barbeque,175.00,bacon-egg
+Cheeseburger,Heaven's Barbeque,95.00,burger
+Cheesy Hungarian,Heaven's Barbeque,125.00,sausage-sandwich
+Beef Mushroom,Heaven's Barbeque,155.00,soup-beef
+TINAPAsta in Pesto Sauce,Heaven's Barbeque,125.00,pasta-fish
+Spaghetti Alla Arrabiata,Heaven's Barbeque,99.00,pasta
+Meatballs on Italian Herb Sauce,Heaven's Barbeque,125.00,pasta
+Puttanesca,Heaven's Barbeque,115.00,pasta
+Creamy Mushroom and Bacon Carbonara,Heaven's Barbeque,115.00,pasta
+One-half Chicken,Heaven's Barbeque,275.00,chicken
+Pork Belly Whole Slab,Heaven's Barbeque,265.00,pork
+Angus Rib Eye with Crispy Potato Wedges,Heaven's Barbeque,625.00,beef
+Grilled Fish in Lemon Butter Sauce,Heaven's Barbeque,285.00,fish
+Sausage Breakfast,Jonas,235.00,sausage-breakfast
+Corned Beef Breakfast,Jonas,195.00,beef-breakfast
+Beef Tapa Breakfast,Jonas,215.00,beef-breakfast
+Country Style Breakfast,Jonas,215.00,breakfast
+Garden Salad with Roasted Walnuts,Jonas,178.00,salad
+Kani with Citrus Salad,Jonas,178.00,salad-kani
+Caesar Salad with Chicken,Jonas,188.00,salad-chicken
+Kani Salad Sandwich,Jonas,165.00,salad-kani
+Ham and Cheese Sandwich,Jonas,165.00,sandwich-ham
+Chicken Salad Sandwich,Jonas,165.00,sandwich-chicken
+Fish Fillet with Tofu and Fresh Leeks,Jonas,165.00,fish
+Original JONAS Pares,Jonas,198.00,pares-soup
+Chicken with Black Beans,Jonas,195.00,chicken
+Spaghetti and Meatballs,Jonas,165.00,pasta
+Salmon Fillet with Soy and Sesame,Jonas,285.00,fish
+Pork Ribs Salt and Pepper,Jonas,195.00,pork
+Prawn Tempura,Jonas,248.00,shrimp
+Chicken Wings Salt and Pepper,Jonas,245.00,chicken
+Chicken with Salted Egg Yolk,Jonas,245.00,chicken
+Sweet and Sour Fish,Jonas,238.00,fish
+Lechon Paksiw,Jonas,245.00,pork
+Mixed Vegetables,Jonas,149.00,vegetables
+Wonton Noodle,Jonas,185.00,noodle
+Beef Noodle,Jonas,195.00,beef-noodle
+Chicken Noodle,Jonas,175.00,chicken-noodle
+Seafood Noodle,Jonas,210.00,seafood-noodle
+A Bit of Everything Noodle,Jonas,225.00,chicken-beef-seafood-noodle
+Asadio Siopao,Jonas,45.00,pork
+Bola-bola Siopai,Jonas,45.00,pork
+Jumbo Siopao,Jonas,45.00,pork
+Spring Rolls,Jonas,88.00,vegetables
+Bros Burger Meal,Brothers Burger,270.00,beef-burger
+Big Brothers Meal,Brothers Burger,315.00,beef-burger
+Lamb Burger Meal,Brothers Burger,395.00,lamb-burger
+Angus Burger Meal,Brothers Burger,395.00,beef-burger
+Pounder Meal,Brothers Burger,395.00,beef-burger
+Double Brothers Burger,Brothers Burger,215.00,beef-burger
+Blues Brother Burger Meal,Brothers Burger,295.00,beef-burger
+Ranchero Burger Meal,Brothers Burger,295.00,beef-burger
+Extreme Bacon Burger Meal,Brothers Burger,295.00,pork-burger-beef
+Manileno Sandwich,Brothers Burger,235.00,sandwich
+Cheese Steak Sandwich,Brothers Burger,235.00,sandwich
+Grilled Chicken Sandwich,Brothers Burger,235.00,chicken-sandwich
+Crispy Fish Sandwich,Brothers Burger,235.00,fish-sandwich
+Chorizo Sandwich,Brothers Burger,235.00,sandwich
+Chicken Zumo,Brothers Burger,235.00,chicken-sandwich
+Bacon Mac and Cheese,Brothers Burger,195.00,pork-pasta
+Pasta Amatriciana,Brothers Burger,195.00,pasta
+Cheese Pizza,S&R New York Style Pizza,569.00,pizza
+Pepperoni Pizza,S&R New York Style Pizza,629.00,pizza-pork
+Garlic Shrimp Pizza,S&R New York Style Pizza,629.00,pizza-shrimp
+Cheeseburger,S&R New York Style Pizza,119.00,beef-burger
+Chicken Caesar Salad,S&R New York Style Pizza,179.00,chicken-salad
+1pc Chicken,S&R New York Style Pizza,99.00,chicken-rice
+Chicken Dinner Meal,Max's Restaurant,332.20,chicken-rice
+Spring Chicken Meal,Max's Restaurant,299.20,chicken-rice
+Chopsuey Meal,Max's Restaurant,282.70,vegetable-rice
+Platter Meal,Max's Restaurant,282.70,chicken-rice
+Fiesta Plate Meal,Max's Restaurant,275.00,rice-chicken
+Chicken Barbecue Meal,Max's Restaurant,247.50,rice-chicken
+Budget Meal,Max's Restaurant,242.00,rice-chicken
+Basic Meal,Max's Restaurant,209.00,rice-chicken
+2-pc. Pancake Meal,Jollibee,60.50,breakfast
+Pancake with Longganisa Meal,Jollibee,99.00,breakfast-longganisa-pork
+Hotdog Meal,Jollibee,75.90,breakfast-egg-hotdog-pork-rice
+Beef Tapa Meal,Jollibee,108.90,breakfast-egg-rice
+Breakfast Steak Meal,Jollibee,75.90,breakfast-egg-rice
+Longganisa Meal,Jollibee,108.90,breakfast-egg-rice
+1-pc. Chickenjoy Meal,Jollibee,82.00,chicken-rice
+2-pc. Chickenjoy Meal,Jollibee,150.00,chicken-rice
+1-pc. Chickenjoy with Spaghetti,Jollibee,115.00,chicken-pasta
+Jolly Spaghetti,Jollibee,55.00,pasta
+Jolly Spagetti with Burger Steak,Jollibee,99.00,pork-pasta
+Cheesy Classic Hotdog,Jollibee,90.00,pork
+Chili Cheese Hotdog,Jollibee,99.00,pork
+Yum Burger Meal,Jollibee,75.00,beef-burger
+Yum Cheeseburger Meal,Jollibee,85.00,beef-burger
+Yum with TLC,Jollibee,102.00,beef-burger
+Champ,Jollibee,165.00,beef-burger
+Cheesy Bacon Mushroom Yum,Jollibee,103.00,beef-burger
+Cheesy Bacon Mushroom Champ,Jollibee,175.00,beef-burger
+Mushroom Gravy Burger Steak,Jollibee,55.00,beef-burger-rice
+Pepper Cream Burger Steak,Jollibee,55.00,beef-burger-rice
+Big Burger Steak,Jollibee,110.00,beef-burger-rice
+Big Mac Value Meal,McDonald's,188.00,beef-burger
+Quarter Pounder with Cheese,McDonald's,187.00,beef-burger
+McDouble Deluxe,McDonald's,166.00,beef-burger
+Double Cheeseburger,McDonald's,157.00,beef-burger
+McChicken Sandwich,McDonald's,155.00,chicken-burger
+Filet-O-Fish,McDonald's,155.00,fish-burger
+Cheeseburger Deluxe,McDonald's,130.00,beef-burger
+Cheeseburger,McDonald's,109.00,beef-burger
+Burger McDo,McDonald's,99.00,beef-burger
+2-pc Chicken McDo with Rice,McDonald's,164.00,chicken-rice
+1-pc Chicken McDo with Rice,McDonald's,98.00,chicken-rice
+1-pc Chicken McDo and McSpaghetti,McDonald's,124.00,chicken-pasta
+Pork Chao Fan,Chowking,59.00,pork-rice
+Beef Chao Fan,Chowking,67.00,beef-rice
+Yangchow,Chowking,77.00,pork-rice
+1-pc Chinese-Style Fried Chicken,Chowking,87.00,chicken-rice
+2-pc Chinese-Style Fried Chicken,Chowking,148.00,chicken-rice
+Chinese-Style Porkchop,Chowking,105.00,pork-rice
+Sweet and Sour Pork,Chowking,105.00,pork-rice
+Sweet and Sour Fish,Chowking,105.00,fish-rice
+Whopper Jr. Meal,Burger King,119.00,beef-burger
+Whopper Meal,Burger King,179.00,beef-burger
+4 Cheese Whopper,Burger King,219.00,beef-burger
+3 Meat Whopper,Burger King,219.00,beef-burger
+Double Cheeseburger,Burger King,179.00,beef-burger
+Double BBQ Bacon Cheese,Burger King,215.00,beef-burger
+Double Mushroom Swiss,Burger King,215.00,beef-burger
+Classis Angus Steakhouse,Burger King,219.00,beef-burger
+X-tra Long Chicken,Burger King,170.00,chicken-sandwich
+Chicken Nugget Burger,Burger King,119.00,chicken-burger
+2-pc King's Crunchy Chicken,Burger King,179.00,chicken-rice
+1-pc King's Crunchy Chicken,Burger King,119.00,chicken-rice
+1-pc Chicken Spaghetti,KFC,99.00,chicken-pasta
+1-pc Chicken Rice Soup,KFC,99.00,chicken-rice
+2-pc Chicken with Rice,KFC,120.00,chicken-rice
+1-pc Classic Fully Loaded Meal,KFC,160.00,chicken-rice
+2-pc Classic Fully Loaded Meal,KFC,190.00,chicken-rice
+Chicken Burger,KFC,70.00,chicken-burger
+Twister,KFC,120.00,chicken-sandwich
+Zinger,KFC,120.00,chicken-sandwich
+Spaghetti,KFC,50.00,pasta
+Famous Bowl,KFC,65.00,chicken-rice
+Italian Ala King,KFC,116.00,chicken-rice
+Tokyo Pepper Steak,KFC,116.00,chicken-rice
+Osaska Teriyaki,KFC,116.00,chicken-rice
+Flavor Shots,KFC,60.00,chicken-rice
