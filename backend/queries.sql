@@ -1,14 +1,13 @@
-USE quiddity;
-
+INSERT INTO restaurant(name) VALUES("Yellow Cab");
+INSERT INTO restaurant(name) VALUES("McDonald\'s");
 INSERT INTO restaurant(name) VALUES("Jonas");
-INSERT INTO restaurant(name) VALUES("Heaven\'s Barbeque");
-INSERT INTO restaurant(name) VALUES("KFC");
-INSERT INTO restaurant(name) VALUES("S&R New York Style Pizza");
 INSERT INTO restaurant(name) VALUES("Jollibee");
 INSERT INTO restaurant(name) VALUES("Brothers Burger");
 INSERT INTO restaurant(name) VALUES("Chowking");
-INSERT INTO restaurant(name) VALUES("McDonald\'s");
+INSERT INTO restaurant(name) VALUES("KFC");
+INSERT INTO restaurant(name) VALUES("S&R New York Style Pizza");
 INSERT INTO restaurant(name) VALUES("Burger King");
+INSERT INTO restaurant(name) VALUES("Heaven\'s Barbeque");
 INSERT INTO restaurant(name) VALUES("Max\'s Restaurant");
 
         INSERT INTO food(name, resto_id, price) VALUES("Buffalo Wings with Blue Cheese Dip", (
@@ -32,11 +31,6 @@ INSERT INTO restaurant(name) VALUES("Max\'s Restaurant");
             INSERT INTO food_category VALUES(
                 (SELECT id FROM food WHERE name = 'Sausage Platter' AND resto_id =
                     (SELECT id FROM restaurant WHERE name = 'Heaven\'s Barbeque')), 'sausage');
-
-        
-            INSERT INTO food_category VALUES(
-                (SELECT id FROM food WHERE name = 'Sausage Platter' AND resto_id =
-                    (SELECT id FROM restaurant WHERE name = 'Heaven\'s Barbeque')), 'barbeque');
 
         
         INSERT INTO food(name, resto_id, price) VALUES("Beef Nachos", (
@@ -394,6 +388,20 @@ INSERT INTO restaurant(name) VALUES("Max\'s Restaurant");
             INSERT INTO food_category VALUES(
                 (SELECT id FROM food WHERE name = 'Creamy Mushroom and Bacon Carbonara' AND resto_id =
                     (SELECT id FROM restaurant WHERE name = 'Heaven\'s Barbeque')), 'pasta');
+
+        
+        INSERT INTO food(name, resto_id, price) VALUES("Sausage Platter", (
+            SELECT id FROM restaurant WHERE name = "Heaven\'s Barbeque"), 285.0);
+
+    
+            INSERT INTO food_category VALUES(
+                (SELECT id FROM food WHERE name = 'Sausage Platter' AND resto_id =
+                    (SELECT id FROM restaurant WHERE name = 'Heaven\'s Barbeque')), 'sausage');
+
+        
+            INSERT INTO food_category VALUES(
+                (SELECT id FROM food WHERE name = 'Sausage Platter' AND resto_id =
+                    (SELECT id FROM restaurant WHERE name = 'Heaven\'s Barbeque')), 'barbeque');
 
         
         INSERT INTO food(name, resto_id, price) VALUES("One-half Chicken", (
@@ -2175,5 +2183,172 @@ INSERT INTO restaurant(name) VALUES("Max\'s Restaurant");
             INSERT INTO food_category VALUES(
                 (SELECT id FROM food WHERE name = 'Flavor Shots' AND resto_id =
                     (SELECT id FROM restaurant WHERE name = 'KFC')), 'rice');
+
+        
+        INSERT INTO food(name, resto_id, price) VALUES("New York\'s Finest", (
+            SELECT id FROM restaurant WHERE name = "Yellow Cab"), 400.0);
+
+    
+            INSERT INTO food_category VALUES(
+                (SELECT id FROM food WHERE name = 'New York\'s Finest' AND resto_id =
+                    (SELECT id FROM restaurant WHERE name = 'Yellow Cab')), 'pizza');
+
+        
+        INSERT INTO food(name, resto_id, price) VALUES("Manhattan Meatlovers", (
+            SELECT id FROM restaurant WHERE name = "Yellow Cab"), 400.0);
+
+    
+            INSERT INTO food_category VALUES(
+                (SELECT id FROM food WHERE name = 'Manhattan Meatlovers' AND resto_id =
+                    (SELECT id FROM restaurant WHERE name = 'Yellow Cab')), 'pizza');
+
+        
+        INSERT INTO food(name, resto_id, price) VALUES("Hawaiian", (
+            SELECT id FROM restaurant WHERE name = "Yellow Cab"), 335.0);
+
+    
+            INSERT INTO food_category VALUES(
+                (SELECT id FROM food WHERE name = 'Hawaiian' AND resto_id =
+                    (SELECT id FROM restaurant WHERE name = 'Yellow Cab')), 'pizza');
+
+        
+        INSERT INTO food(name, resto_id, price) VALUES("Four Seasons", (
+            SELECT id FROM restaurant WHERE name = "Yellow Cab"), 395.0);
+
+    
+            INSERT INTO food_category VALUES(
+                (SELECT id FROM food WHERE name = 'Four Seasons' AND resto_id =
+                    (SELECT id FROM restaurant WHERE name = 'Yellow Cab')), 'pizza');
+
+        
+        INSERT INTO food(name, resto_id, price) VALUES("#4 Cheese", (
+            SELECT id FROM restaurant WHERE name = "Yellow Cab"), 340.0);
+
+    
+            INSERT INTO food_category VALUES(
+                (SELECT id FROM food WHERE name = '#4 Cheese' AND resto_id =
+                    (SELECT id FROM restaurant WHERE name = 'Yellow Cab')), 'pizza');
+
+        
+        INSERT INTO food(name, resto_id, price) VALUES("NY Classic", (
+            SELECT id FROM restaurant WHERE name = "Yellow Cab"), 340.0);
+
+    
+            INSERT INTO food_category VALUES(
+                (SELECT id FROM food WHERE name = 'NY Classic' AND resto_id =
+                    (SELECT id FROM restaurant WHERE name = 'Yellow Cab')), 'pizza');
+
+        
+        INSERT INTO food(name, resto_id, price) VALUES("Barbecue Chicken", (
+            SELECT id FROM restaurant WHERE name = "Yellow Cab"), 365.0);
+
+    
+            INSERT INTO food_category VALUES(
+                (SELECT id FROM food WHERE name = 'Barbecue Chicken' AND resto_id =
+                    (SELECT id FROM restaurant WHERE name = 'Yellow Cab')), 'pizza');
+
+        
+        INSERT INTO food(name, resto_id, price) VALUES("Garden Special", (
+            SELECT id FROM restaurant WHERE name = "Yellow Cab"), 330.0);
+
+    
+            INSERT INTO food_category VALUES(
+                (SELECT id FROM food WHERE name = 'Garden Special' AND resto_id =
+                    (SELECT id FROM restaurant WHERE name = 'Yellow Cab')), 'pizza');
+
+        
+        INSERT INTO food(name, resto_id, price) VALUES("Pepperoni and Mushroom", (
+            SELECT id FROM restaurant WHERE name = "Yellow Cab"), 330.0);
+
+    
+            INSERT INTO food_category VALUES(
+                (SELECT id FROM food WHERE name = 'Pepperoni and Mushroom' AND resto_id =
+                    (SELECT id FROM restaurant WHERE name = 'Yellow Cab')), 'pizza');
+
+        
+        INSERT INTO food(name, resto_id, price) VALUES("Roasted Garlic and Shrimp", (
+            SELECT id FROM restaurant WHERE name = "Yellow Cab"), 395.0);
+
+    
+            INSERT INTO food_category VALUES(
+                (SELECT id FROM food WHERE name = 'Roasted Garlic and Shrimp' AND resto_id =
+                    (SELECT id FROM restaurant WHERE name = 'Yellow Cab')), 'pizza');
+
+        
+        INSERT INTO food(name, resto_id, price) VALUES("Dear Darla", (
+            SELECT id FROM restaurant WHERE name = "Yellow Cab"), 330.0);
+
+    
+            INSERT INTO food_category VALUES(
+                (SELECT id FROM food WHERE name = 'Dear Darla' AND resto_id =
+                    (SELECT id FROM restaurant WHERE name = 'Yellow Cab')), 'pizza');
+
+        
+        INSERT INTO food(name, resto_id, price) VALUES("Four Cheese and Tomatoes", (
+            SELECT id FROM restaurant WHERE name = "Yellow Cab"), 260.0);
+
+    
+            INSERT INTO food_category VALUES(
+                (SELECT id FROM food WHERE name = 'Four Cheese and Tomatoes' AND resto_id =
+                    (SELECT id FROM restaurant WHERE name = 'Yellow Cab')), 'pizza');
+
+        
+        INSERT INTO food(name, resto_id, price) VALUES("Jalapeno and Pepperoni", (
+            SELECT id FROM restaurant WHERE name = "Yellow Cab"), 260.0);
+
+    
+            INSERT INTO food_category VALUES(
+                (SELECT id FROM food WHERE name = 'Jalapeno and Pepperoni' AND resto_id =
+                    (SELECT id FROM restaurant WHERE name = 'Yellow Cab')), 'pizza');
+
+        
+        INSERT INTO food(name, resto_id, price) VALUES("Chelsea\'s Artichoke Pizza", (
+            SELECT id FROM restaurant WHERE name = "Yellow Cab"), 280.0);
+
+    
+            INSERT INTO food_category VALUES(
+                (SELECT id FROM food WHERE name = 'Chelsea\'s Artichoke Pizza' AND resto_id =
+                    (SELECT id FROM restaurant WHERE name = 'Yellow Cab')), 'pizza');
+
+        
+        INSERT INTO food(name, resto_id, price) VALUES("Prosciutto Ham and Boursin Cheese", (
+            SELECT id FROM restaurant WHERE name = "Yellow Cab"), 280.0);
+
+    
+            INSERT INTO food_category VALUES(
+                (SELECT id FROM food WHERE name = 'Prosciutto Ham and Boursin Cheese' AND resto_id =
+                    (SELECT id FROM restaurant WHERE name = 'Yellow Cab')), 'pizza');
+
+        
+        INSERT INTO food(name, resto_id, price) VALUES("Salmon with Dill", (
+            SELECT id FROM restaurant WHERE name = "Yellow Cab"), 280.0);
+
+    
+            INSERT INTO food_category VALUES(
+                (SELECT id FROM food WHERE name = 'Salmon with Dill' AND resto_id =
+                    (SELECT id FROM restaurant WHERE name = 'Yellow Cab')), 'pizza');
+
+        
+        INSERT INTO food(name, resto_id, price) VALUES("Charlie Chan Chicken Pasta", (
+            SELECT id FROM restaurant WHERE name = "Yellow Cab"), 165.0);
+
+    
+            INSERT INTO food_category VALUES(
+                (SELECT id FROM food WHERE name = 'Charlie Chan Chicken Pasta' AND resto_id =
+                    (SELECT id FROM restaurant WHERE name = 'Yellow Cab')), 'chicken');
+
+        
+            INSERT INTO food_category VALUES(
+                (SELECT id FROM food WHERE name = 'Charlie Chan Chicken Pasta' AND resto_id =
+                    (SELECT id FROM restaurant WHERE name = 'Yellow Cab')), 'pasta');
+
+        
+        INSERT INTO food(name, resto_id, price) VALUES("Spaghetti and Meatballs", (
+            SELECT id FROM restaurant WHERE name = "Yellow Cab"), 170.0);
+
+    
+            INSERT INTO food_category VALUES(
+                (SELECT id FROM food WHERE name = 'Spaghetti and Meatballs' AND resto_id =
+                    (SELECT id FROM restaurant WHERE name = 'Yellow Cab')), 'pasta');
 
         

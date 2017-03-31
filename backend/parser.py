@@ -1,4 +1,4 @@
-fh_in = open('menu.txt', 'r')
+fh_in = open('menu', 'r')
 fh_out = open('queries.sql', 'w')
 resto = set()
 food = []
