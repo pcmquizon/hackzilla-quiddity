@@ -57,6 +57,7 @@ export class ChatPage {
        platform.ready().then(() => {
 
          this.data['username'] = this.navParams.data.user['username'];
+         this.data['username'] = 'jdamanalo';
 
          // get current position
          this.showLoading();
@@ -68,7 +69,7 @@ export class ChatPage {
                   longitude: resp.coords.longitude
                 };
 
-               this.addMessage('You are at '+resp.coords.latitude+', '+resp.coords.longitude, false);
+               // this.addMessage('You are at '+resp.coords.latitude+', '+resp.coords.longitude, false);
              }).catch((error) => {
                console.log('Error getting location', error);
                this.showError("Sorry, I can't get your location");
@@ -120,10 +121,8 @@ export class ChatPage {
     this.bot.sendToApiAi(this.data)
             .then(
                   (data) => {
-                    console.log(JSON.stringify(data));
-
                     // api.ai recognized something
-                    this.intent = data['intentName'];
+                    this.intent = data['intent'];
 
                     // add some interaction here,
                     // say show popover for menu?
@@ -138,8 +137,8 @@ export class ChatPage {
                       //   break;
                       case "find-food":
                         this.popoverOpts = {
-                          items: data['rows'],
-                          label: 'restaurant_name',
+                          items: data['data'],
+                          label: 'name',
                           value: 'resto_id',
                           title: 'Find restaurant of choice:',
                           intent: this.intent
@@ -149,47 +148,87 @@ export class ChatPage {
                         // this.intent = 'find-restaurant';
                         break;
                       case "find-food-restaurant":
-                        this.showAskBudget()
-                            .then((budget) => {
-                              let rows = data['rows'].filter((item) => {
-                                if(item['price'] <= budget){
-                                  return item;
-                                }
-                              });
+                        // this.showAskBudget()
+                        //     .then((budget) => {
+                        //       let rows = data['data'].filter((item) => {
+                        //         if(item['price'] <= budget){
+                        //           return item;
+                        //         }
+                        //       });
 
                               this.popoverOpts = {
-                                items: rows,
+                                items: data['data'],
                                 labels: ['name', 'price'],
-                                values: ['id', 'qty'],
+                                values: ['food_id', 'qty'],
                                 title: 'Find food of choice:',
                                 intent: this.intent,
-                                budget: budget
+                                // budget: budget
                               };
 
                               this.showMultiMenu();
-                            });
+                            // });
                         // this.intent = 'confirm-order';
                         break;
                       case "find-restaurant":
-                        this.showAskBudget()
-                            .then((budget) => {
-                              let rows = data['rows'].filter((item) => {
-                                if(item['price'] <= budget){
-                                  return item;
-                                }
-                              });
+                          // this.popoverOpts = {
+                          //   items: data['data'],
+                          //   labels: ['name'],
+                          //   values: ['food_id', 'qty'],
+                          //   title: 'Find food of choice:',
+                          //   intent: this.intent,
+                          // };
+
+                          // this.showMultiMenu();
+                          // this.showAskBudget()
+                          //   .then((budget) => {
+                          //     let rows = data['data'].filter((item) => {
+                          //       if(item['price'] <= budget){
+                          //         return item;
+                          //       }
+                          //     });
 
                               this.popoverOpts = {
-                                items: rows,
+                                items: data['data'],
                                 labels: ['name', 'price'],
-                                values: ['id', 'qty'],
+                                values: ['food_id', 'qty'],
                                 title: 'Find food of choice:',
                                 intent: this.intent,
-                                budget: budget
+                                // budget: budget
                               };
 
                               this.showMultiMenu();
-                            });
+                            // });
+                        // this.intent = 'confirm-order';
+                        break;
+                      case "find-meal":
+                          // this.popoverOpts = {
+                          //   items: data['data'],
+                          //   labels: ['name'],
+                          //   values: ['food_id', 'qty'],
+                          //   title: 'Find food of choice:',
+                          //   intent: this.intent,
+                          // };
+
+                          // this.showMultiMenu();
+                          // this.showAskBudget()
+                          //   .then((budget) => {
+                          //     let rows = data['data'].filter((item) => {
+                          //       if(item['price'] <= budget){
+                          //         return item;
+                          //       }
+                          //     });
+
+                              this.popoverOpts = {
+                                items: data['data'],
+                                labels: ['name', 'price'],
+                                values: ['food_id', 'qty'],
+                                title: 'Find food of choice:',
+                                intent: this.intent,
+                                // budget: budget
+                              };
+
+                              this.showMultiMenu();
+                            // });
                         // this.intent = 'confirm-order';
                         break;
                       default:

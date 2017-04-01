@@ -55,9 +55,10 @@ export class Bot {
     console.log('sending '+JSON.stringify(postData));
 
     return this.http
-               .post('http://10.239.117.71:8000/query', postData, options)
+               // .post('http://10.239.119.194:8000/query', postData, options)
+               .post('http://10.239.119.174:8000/query', postData, options)
                .map(res => res.json())
-               .map(data => { return data; })
+               .map(data => { console.log(JSON.stringify(data)); return data; })
                .toPromise();
   }
 

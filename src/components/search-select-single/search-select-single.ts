@@ -34,52 +34,8 @@ export class SearchSelectSingleComponent {
       this.label = this.navParams.get('label');
       this.value = this.navParams.get('value');
       this.title = this.navParams.get('title');
-      this.intent
-       = this.navParams.get('intent');
+      this.intent = this.navParams.get('intent');
       this.query = '';
-
-      // if(this.intent === 'find-food'){
-      //  this.items= [{
-      //                   restaurant_id: 1,
-      //                   restaurant_name: "Jonas"
-      //                 },
-      //                 {
-      //                   restaurant_id: 2,
-      //                   restaurant_name: "Heaven's Barbeque"
-      //                 },
-      //                 {
-      //                   restaurant_id: 3,
-      //                   restaurant_name: "KFC"
-      //                 },
-      //                 {
-      //                   restaurant_id: 4,
-      //                   restaurant_name: "S&R"
-      //                 },
-      //                 {
-      //                   restaurant_id: 5,
-      //                   restaurant_name: "Jollibee"
-      //                 },
-      //                 {
-      //                   restaurant_id: 6,
-      //                   restaurant_name: "Brothers Burger"
-      //                 },
-      //                 {
-      //                   restaurant_id: 7,
-      //                   restaurant_name: "Chowking"
-      //                 },
-      //                 {
-      //                   restaurant_id: 8,
-      //                   restaurant_name: "McDonald's"
-      //                 },
-      //                 {
-      //                   restaurant_id: 9,
-      //                   restaurant_name: "Burger King"
-      //                 },
-      //                 {
-      //                   restaurant_id: 10,
-      //                   restaurant_name: "Max's Restaurant"
-      //                 }];
-      // }
     });
   }
 
