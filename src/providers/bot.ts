@@ -48,15 +48,17 @@ export class Bot {
       headers: headers
     });
 
-    let keys = ['query', 'location'];
-    let values = [data['msg'], data['location']];
+    let keys = ['query', 'location', 'username', 'resto_id', 'food', 'context'];
+    let values = [data['msg'], data['location'], data['username'], data['resto_id'], data['food'], data['context']];
 
     let postData = this.toUrlEncoded(keys, values);
+    console.log('sending '+JSON.stringify(postData));
 
     return this.http
-               .post('http://127.0.0.1:8000/query', postData, options)
+               // .post('http://10.239.119.194:8000/query', postData, options)
+               .post('http://10.239.119.174:8000/query', postData, options)
                .map(res => res.json())
-               .map(data => { return data; })
+               .map(data => { console.log(JSON.stringify(data)); return data; })
                .toPromise();
   }
 

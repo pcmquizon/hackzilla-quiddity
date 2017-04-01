@@ -16,12 +16,15 @@ import { ViewController } from 'ionic-angular';
 })
 export class SearchSelectMultiComponent {
 
-  public labels = [];
   public value = '';
-  public selected = [];
   public query = '';
   public title = '';
+  public intent = '';
+  public total = 0;
+  public labels = [];
   public items = [];
+  public selected = [];
+  public skip_labels = [];
 
   constructor(public platform: Platform,
               private navParams: NavParams,
@@ -30,8 +33,10 @@ export class SearchSelectMultiComponent {
     platform.ready().then(() => {
       this.items = this.navParams.get('items');
       this.labels = this.navParams.get('labels');
+      this.skip_labels = this.navParams.get('skip_labels');
       this.value = this.navParams.get('value');
       this.title = this.navParams.get('title');
+      this.intent = this.navParams.get('intent');
       this.query = '';
     });
   }
@@ -45,7 +50,59 @@ export class SearchSelectMultiComponent {
 
     this.selected = unique_selected.filter((value, index, self) => {
       return self.indexOf(value) === index;
-    }).sort();
+    });
+
+    for(let selected of this.selected){
+      selected['qty'] = 1;
+    }
+
+    for(let food of this.items){
+      if(!food['checked']){
+        food['qty'] = 0;
+      }
+    }
+
+    // extra tasks
+    switch (this.intent) {
+      case "find-food-restaurant":
+        this.computeTotal();
+        break;
+      case "find-restaurant":
+        this.computeTotal();
+        break;
+      case "find-meal":
+        this.computeTotal();
+        break;
+    }
+
+  }
+
+  private formatNumber(number, precision=2) {
+    var factor = Math.pow(10, precision);
+    var tempNumber = number * factor;
+    var roundedTempNumber = Math.round(tempNumber);
+    return roundedTempNumber / factor;
+  };
+
+  public computeTotal(){
+    let sum = 0.0;
+    for(let selected of this.selected){
+      let price = parseFloat(selected['price']);
+
+      if(selected['qty']){
+        price *= selected['qty'];
+      }
+
+      if(isNaN(price)){
+        price = 0;
+      }
+
+      sum += price;
+    }
+
+    sum = this.formatNumber(sum);
+
+    this.total = sum;
   }
 
   cancel() {
@@ -53,7 +110,60 @@ export class SearchSelectMultiComponent {
   }
 
   close() {
-    this.viewCtrl.dismiss(this.selected);
+    let data = {
+      selected: [],
+      label: ''
+    };
+
+    let labels = [];
+
+    switch (this.intent) {
+      case "find-restaurant":
+        data['selected'] = this.selected.map((item) => {
+          return {
+            food_id: item['food_id'],
+            qty: item['qty']
+          };
+        });
+
+        labels = this.selected.map((item) => {
+          return item['name'];
+        });
+
+        data['label'] = labels.join(', ');
+        break;
+      case "find-food-restaurant":
+        data['selected'] = this.selected.map((item) => {
+          return {
+            food_id: item['food_id'],
+            qty: item['qty']
+          };
+        });
+
+        labels = this.selected.map((item) => {
+          return item['name'];
+        });
+
+        data['label'] = labels.join(', ');
+        break;
+      case "find-meal":
+        data['selected'] = this.selected.map((item) => {
+          return {
+            food_id: item['food_id'],
+            qty: item['qty']
+          };
+        });
+
+        labels = this.selected.map((item) => {
+          return item['name'];
+        });
+
+        data['label'] = labels.join(', ');
+        break;
+
+    }
+
+    this.viewCtrl.dismiss(data);
   }
 
   public getItems(ev) {

@@ -1,0 +1,19 @@
+<!--
+  Generated template for the SearchSelectSingle component.
+
+  See https://angular.io/docs/ts/latest/api/core/index/ComponentMetadata-class.html
+  for more info on Angular 2 Components.
+-->
+
+<ion-list no-padding no-lines radio-group text-wrap inset [(ngModel)]="selected" id="wrapper">
+  <ion-list-header>
+    {{title}} <span (click)="close()" class="close">Close</span>
+  </ion-list-header>
+    <ion-searchbar placeholder="Search" [(ngModel)]="query" (ionInput)="getItems($event)"></ion-searchbar>
+
+  <ion-item *ngFor="let i of items">
+    <ion-label>{{i[label]}}</ion-label>
+    <ion-radio value={{i|json}} (click)="select(i)"></ion-radio>
+  </ion-item>
+
+</ion-list>
