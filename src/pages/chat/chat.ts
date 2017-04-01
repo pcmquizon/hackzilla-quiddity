@@ -31,6 +31,7 @@ export class ChatPage {
 
   @ViewChild(Content) content: Content;
 
+  public food = '';
   public messages = [];
   public chatMsg = '';
   public popover: any;
@@ -60,20 +61,20 @@ export class ChatPage {
          this.data['username'] = 'jdamanalo';
 
          // get current position
-         this.showLoading();
-         this.geolocation.getCurrentPosition()
-             .then((resp) => {
-               this.hideLoading();
-               this.userLocation = {
-                  latitude: resp.coords.latitude,
-                  longitude: resp.coords.longitude
-                };
+         // this.showLoading();
+         // this.geolocation.getCurrentPosition()
+         //     .then((resp) => {
+         //       this.hideLoading();
+         //       this.userLocation = {
+         //          latitude: resp.coords.latitude,
+         //          longitude: resp.coords.longitude
+         //        };
 
-               // this.addMessage('You are at '+resp.coords.latitude+', '+resp.coords.longitude, false);
-             }).catch((error) => {
-               console.log('Error getting location', error);
-               this.showError("Sorry, I can't get your location");
-             });
+         //       // this.addMessage('You are at '+resp.coords.latitude+', '+resp.coords.longitude, false);
+         //     }).catch((error) => {
+         //       console.log('Error getting location', error);
+         //       this.showError("Sorry, I can't get your location");
+         //     });
     });
 
   }
@@ -121,8 +122,15 @@ export class ChatPage {
     this.bot.sendToApiAi(this.data)
             .then(
                   (data) => {
+
+
+
                     // api.ai recognized something
                     this.intent = data['intent'];
+                    this.food = data['food']
+                    this.userLocation = data['location'];
+                    this.data.username = data['username'];
+
 
                     // add some interaction here,
                     // say show popover for menu?
@@ -134,7 +142,7 @@ export class ChatPage {
                       //   break;
                       // case "ask-budget":
                       //   this.showAskBudget();
-                      //   break;
+                      //   break;P
                       case "find-food":
                         this.popoverOpts = {
                           items: data['data'],
@@ -144,7 +152,10 @@ export class ChatPage {
                           intent: this.intent
                         };
 
+
+
                         this.showSingleMenu();
+
                         // this.intent = 'find-restaurant';
                         break;
                       case "find-food-restaurant":
@@ -232,9 +243,17 @@ export class ChatPage {
                         // this.intent = 'confirm-order';
                         break;
                       default:
-                        this.showError("Sorry, but I do not understand.");
+                        let msg = data['result']['fulfillment']['speech'];
+                        this.showError(msg);
                         break;
                     }
+
+
+                    this.data = data = {
+                      msg: '',
+                      location: '',
+                      username: 'jdamanalo'
+                    };
 
                     // resolve(data);
                   },
@@ -242,7 +261,7 @@ export class ChatPage {
                     // sabi ni api.ai di nagets ng bot
                     // or something else
                     // reject();
-                    this.showError("Sorry, but I do not understand.");
+                    this.showError("Oooh, snap! Something went wrong.");
                   });
   }
 
@@ -326,8 +345,16 @@ export class ChatPage {
 
       // this.addMessage('log: '+JSON.stringify(data));
 
-      let msg = this.data['msg'] + this.selected;
-      this.processResponse(msg);
+      // let msg = this.data['msg'] + this.selected;
+
+      console.log(this.selected);
+
+      if( this.intent === 'find-food' ){
+        this.data['resto_id'] = this.selected;
+        this.data['food'] = this.food;
+        this.data['context'] = 'selected-restaurant';
+      }
+      this.processResponse(this.data['msg']);
 
     });
   }
@@ -353,6 +380,12 @@ export class ChatPage {
 
       switch (this.intent) {
         case "find-food-restaurant":
+          this.showBuyConfirm();
+          break;
+        case "find-meal":
+          this.showBuyConfirm();
+          break;
+        case "find-restaurant":
           this.showBuyConfirm();
           break;
       }

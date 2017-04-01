@@ -48,8 +48,8 @@ export class Bot {
       headers: headers
     });
 
-    let keys = ['query', 'location', 'username'];
-    let values = [data['msg'], data['location'], data['username']];
+    let keys = ['query', 'location', 'username', 'resto_id', 'food', 'context'];
+    let values = [data['msg'], data['location'], data['username'], data['resto_id'], data['food'], data['context']];
 
     let postData = this.toUrlEncoded(keys, values);
     console.log('sending '+JSON.stringify(postData));
