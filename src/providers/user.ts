@@ -16,8 +16,7 @@ export class User {
     let password = user['password'];
 
     return new Promise((resolve, reject) => {
-      if( /*username !== '' &&*/
-          username === password ){
+      if( password === '123' ){
         resolve();
       }
       else{

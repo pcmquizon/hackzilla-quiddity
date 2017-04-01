@@ -58,7 +58,6 @@ export class ChatPage {
        platform.ready().then(() => {
 
          this.data['username'] = this.navParams.data.user['username'];
-         this.data['username'] = 'jdamanalo';
 
          // get current position
          // this.showLoading();
@@ -123,13 +122,15 @@ export class ChatPage {
             .then(
                   (data) => {
 
+                    console.log(JSON.stringify(data));
+
 
 
                     // api.ai recognized something
                     this.intent = data['intent'];
                     this.food = data['food']
                     this.userLocation = data['location'];
-                    this.data.username = data['username'];
+                    // this.data.username = data['username'];
 
 
                     // add some interaction here,
@@ -249,11 +250,11 @@ export class ChatPage {
                     }
 
 
-                    this.data = data = {
-                      msg: '',
-                      location: '',
-                      username: 'jdamanalo'
-                    };
+                    // this.data = data = {
+                    //   msg: '',
+                    //   location: '',
+                    //   username: ''
+                    // };
 
                     // resolve(data);
                   },
@@ -327,6 +328,7 @@ export class ChatPage {
       });
 
     alert.present();
+    this.data['msg'] = '';
   }
 
   public showSingleMenu(){
